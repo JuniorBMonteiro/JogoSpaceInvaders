@@ -1,0 +1,32 @@
+.conteudo{
+-fx-background-image: url("fundoMenu.png");
+}
+.fundoRecorde{
+-fx-background-image: url("fundoRecorde.png");
+}
+.fundoGameOver{
+-fx-background-image: url("fundoGameOver.png");
+}
+
+.recorde{
+   -fx-font-family : "Press Start 2P";
+       -fx-text-fill: #b890e5;
+       -fx-font-size: 20px;
+
+}
+.texto{
+        -fx-font-family : "Press Start 2P";
+       -fx-text-fill: #eee;
+       -fx-font-size: 20px;
+
+}
+.textoGrande{
+        -fx-font-family : "Press Start 2P";
+       -fx-text-fill: #eee;
+       -fx-font-size: 13px;
+}
+.botao{
+       -fx-font-family : "Press Start 2P";
+       -fx-text-fill: #eee;
+       -fx-font-size: 15px;
+}

@@ -4,6 +4,7 @@ import javafx.scene.paint.Paint;
 /**
  * Represents a shot that crosses the screen from bottom to up and then dismiss
  * @author Bernardo Copstein and Rafael Copstein
+ * @author José Junior Borges Monteiro
  */
 public class Shot extends BasicElement{
     public Shot(int px,int py){
@@ -12,14 +13,15 @@ public class Shot extends BasicElement{
 
     @Override
     public void start(){
-        setDirV(-1);
-        setSpeed(3);
+        setDirV(-1); // percurso da bala
+        setSpeed(15); //velocidade do tiro
+        setLargAlt(4,16);
     }
 
     @Override
     public void testaColisao(Character outro){
-        // Não verifica colisão de um tiro com outro tiro
-        if (outro instanceof Shot){
+        // Só testa a colisão com personagens ignorando utilitários.
+        if (outro instanceof Shot || outro instanceof Vida || outro instanceof Municao){
             return;
         }else{
             super.testaColisao(outro);
@@ -47,11 +49,11 @@ public class Shot extends BasicElement{
 
     @Override
     public int getLargura(){
-        return 8;
+        return 4;
     }
 
     public void Draw(GraphicsContext graphicsContext){
-        graphicsContext.setFill(Paint.valueOf("#00FF00"));
-        graphicsContext.fillOval(getX(), getY(), 8, 16);
+        graphicsContext.setFill(Paint.valueOf("#0b7ef3"));
+        graphicsContext.fillOval(getX(), getY(), 4, 16);
     }
 }

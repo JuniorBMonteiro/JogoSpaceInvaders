@@ -3,6 +3,7 @@ import javafx.scene.canvas.GraphicsContext;
 /**
  * Represents the basic game character
  * @author Bernardo Copstein and Rafael Copstein
+ * @author José Junior Borges Monteiro
  */
 public abstract class BasicElement implements Character{
     int direction_horizontal = 0, direction_vertical = 0;
@@ -14,7 +15,10 @@ public abstract class BasicElement implements Character{
     int posX, posY;
     int speed = 2;
 
-    public BasicElement(int startX,int startY){
+    public BasicElement() {
+    }
+
+    public BasicElement(int startX, int startY){
         posX = startX;
         posY = startY;
     }

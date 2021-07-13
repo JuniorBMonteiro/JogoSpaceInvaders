@@ -3,6 +3,7 @@ import javafx.scene.canvas.GraphicsContext;
 /**
  * Represents the basic game character
  * @author Bernardo Copstein and Rafael Copstein
+ * @author José Junior Borges Monteiro
  */
 public interface Character {
     int getX();
