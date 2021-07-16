@@ -19,6 +19,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
+import java.sql.SQLException;
 import java.util.*;
 
 /**
@@ -53,7 +54,6 @@ public class Main extends Application {
         janela.setTitle(Params.WINDOW_TITLE);
         janela.setResizable(false); // redimensionar a tela
         janela.show();
-
     }
 
     private void criarMenuLogin() {
@@ -140,7 +140,7 @@ public class Main extends Application {
         menu.getStylesheets().add("https://fonts.googleapis.com/css2?family=Press+Start+2P");
     }
 
-    private void criarRecorde() {
+    private void criarRecorde(){
         VBox box = new VBox();
         Label info = new Label("Nome      Score");
         info.getStyleClass().add("recorde");
@@ -148,7 +148,11 @@ public class Main extends Application {
         box.getChildren().add(info);
         // obtem a lista das 10 melhores pontuações
         Recorde rec = new Recorde();
-        rec.load();
+        try {
+            rec.load();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
         // cria um box para cada recorde
             rec.getJogadores().forEach(e ->  {
             String nome = e.getNome();
@@ -304,7 +308,11 @@ public class Main extends Application {
                     pontuacaoFinal= Game.getInstance().getPontos();
                     criarGameOver();
                     Recorde rec = new Recorde();
-                    rec.save(pontuacaoFinal, nome);
+                    try {
+                        rec.save(pontuacaoFinal, nome);
+                    } catch (SQLException throwables) {
+                        throwables.printStackTrace();
+                    }
                     stop();
                     janela.setScene(gameOver);
                     Game.getInstance().setNewGame();

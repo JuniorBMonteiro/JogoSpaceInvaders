@@ -2,8 +2,15 @@
  * @author José Junior Borges Monteiro
  * */
 public class Jogador implements Comparable<Jogador> {
+    private Integer id;
     private String nome;
     private Integer pontuacao;
+
+    public Jogador(Integer id, String nome, Integer pontuacao) {
+        this.id = id;
+        this.nome = nome;
+        this.pontuacao = pontuacao;
+    }
 
     public Jogador(String nome, Integer pontuacao) {
         this.nome = nome;
